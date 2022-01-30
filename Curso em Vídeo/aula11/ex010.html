@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN jVs</title>
+    <style>
+        h1.tittle {
+            font: normal 25pt Arial;
+            text-align: center;
+            margin-bottom: 30pt;
+            margin-top: 30pt;
+        }
+
+        body {
+            text-align: center;
+            background-color: rgb(3, 9, 20);
+            color: white;
+            font-size: 15pt;
+        }
+
+        input.space {
+            width: 50px;
+        }
+
+        footer{
+            position:absolute;
+            bottom: 0;
+            text-align: center;
+            color: crimson;
+        }
+
+        div.res {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="multa" class="tittle">Sistema de Multas</h1>
+
+    Velocidade do carro: <input type="number" class="space" name="txtvel" id="txtvel"> Km/h
+    
+    <input type="button" value="Verificar" onclick="calcular()">
+
+    <div id="res" class="res">
+    </div>
+    
+    <h1 id="nacao" class="tittle">Sistema de nacionalidades</h1>
+    
+    Digite o nome do país que você nasceu: <input type="text" class="space" id="txtnation">
+    
+    <input type="button" value="Verificar" onclick="verificar()">
+
+    <div id="res2" class="res">
+    </div>
+
+    <footer>Powered by jVs</footer>
+    <script>
+        function calcular(){
+            var txtv = window.document.querySelector('input#txtvel')
+            var res = window.document.querySelector('div#res')
+            var vel = Number(txtv.value)
+            res.innerHTML = `<p> Sua velocidade é de <strong>${vel} Km/h</strong></p>`
+            if (vel > 60){
+                res.innerHTML = `<p>Você ultrapassou o limite de velocidade, você está <strong>MULTADO</strong> brasileirinho</p>`
+            }
+            res.innerHTML += `<p>Use sempre o cinto de segurança, meu jovem!</p>`
+        }
+
+        function verificar(){
+            var txtnation = document.querySelector('input#txtnation')
+            var res2 = document.querySelector('div#res2')
+            if (txtnation.value === 'Brasil' || txtnation.value === 'brasil' || txtnation.value === 'BRASIL'){
+                res2.innerHTML = `<p>Você é brasileiro!</p>`
+            } else {
+                res2.innerHTML = `<p>Você é boludo!</p>`
+            }
+        }
+    </script>
+</body>
+</html>

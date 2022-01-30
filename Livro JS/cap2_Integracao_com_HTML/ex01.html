@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01</title>
+    <style>
+        input{
+            width: 150px;
+            height: 20px;
+        }
+        body{
+            font: normal 25pt Arial;
+        }
+        div.input {
+            margin-top: 15pt;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Farmácia</h1>
+
+    <div class="input">
+        Medicamento: <input type="text" id="med">
+    </div>
+
+    <div class="input">
+        Preço R$: <input type="number" id="preço">
+    </div>
+
+    <div class="input">
+        <input type="button" value="Mostrar Promoção" id="btMostrar" onclick="mostrar()">
+    </div>
+
+    <div class="input" id="res"></div>
+
+    <script>
+        function mostrar(){
+            var med = document.getElementById("med")
+            var preçotxt = document.getElementById("preço")
+            var preço = Number(preçotxt.value)
+            var promoção = Math.floor(preço*2)
+            var res = window.document.getElementById("res")
+            res.textContent = `Promoção de ${med.value} \n, Leve 2 por apenas R$${promoção}.`
+        }
+    </script>
+</body>
+
+</html>
